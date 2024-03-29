@@ -2,8 +2,16 @@
 .main {
   padding: 85px 0 140px;
 }
+@media screen and (max-width: 767px) {
+  .main {
+    padding: 85px 0 120px;
+  }
+}
 .main .l-section {
   padding: 44px 0;
+}
+.main .l-section + .l-section {
+  margin-bottom: 0;
 }
 .main .l-section .l-inner {
   width: min(100% - 32px, 1200px);
@@ -26,6 +34,11 @@
   width: 150px;
   height: 30px;
 }
+@media screen and (max-width: 767px) {
+  .header__top .logo {
+    width: 145px;
+  }
+}
 .header__bottom {
   padding: 0 16px;
   background-color: #333;
@@ -47,6 +60,11 @@
 }
 .header__bottom nav ul li + li {
   margin-left: 64px;
+}
+@media screen and (max-width: 767px) {
+  .header__bottom nav ul li + li {
+    margin-left: 60px;
+  }
 }
 
 .card__title {
@@ -92,15 +110,37 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
+@media screen and (max-width: 767px) {
+  .picup {
+    grid-template-columns: 100%;
+    gap: 30px;
+  }
+}
 
 .columnArea {
   display: grid;
   grid-template-columns: 1fr 28.75%;
   gap: 43px;
 }
+@media screen and (max-width: 767px) {
+  .columnArea {
+    grid-template-columns: 100%;
+  }
+}
 .columnArea .mainColumn {
   display: grid;
   gap: 80px;
+}
+@media screen and (max-width: 767px) {
+  .columnArea .mainColumn {
+    gap: 90px;
+  }
+}
+.columnArea .mainColumn .card p {
+  padding: 0 40px;
+}
+.columnArea .mainColumn .card .more {
+  margin-top: 30px;
 }
 .columnArea .sideColumn__section .title {
   text-align: center;
@@ -139,7 +179,7 @@
   font-size: 14px;
 }
 .columnArea .sideColumn .archive__list li {
-  padding: 10px 0;
+  padding: 10px 0 10px 20px;
   list-style: none;
   border-top: solid 1px #333;
 }
@@ -163,6 +203,11 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 61px;
   margin-bottom: 60px;
+}
+@media screen and (max-width: 767px) {
+  .footer__inner {
+    grid-template-columns: 100%;
+  }
 }
 .footer__inner .footer__section {
   font-size: 14px;

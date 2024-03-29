@@ -1,10 +1,27 @@
 $base-width:1200px;
 
+$breakpoint: (md: 'screen and (max-width: 767px)',
+);
+
+@mixin mq-down($bp) {
+    @media #{map-get($breakpoint, $bp)} {
+        @content;
+    }
+}
+
 .main {
     padding: 85px 0 140px;
 
+    @include mq-down(md) {
+        padding: 85px 0 120px;
+    }
+
     .l-section {
         padding: 44px 0;
+
+        +.l-section {
+            margin-bottom: 0;
+        }
 
         .l-inner {
             width: min(calc(100% - 32px), $base-width);
@@ -30,6 +47,10 @@ $base-width:1200px;
             display: block;
             width: 150px;
             height: 30px;
+
+            @include mq-down(md) {
+                width: 145px;
+            }
         }
     }
 
@@ -56,6 +77,11 @@ $base-width:1200px;
 
                     +li {
                         margin-left: 64px;
+
+                        @include mq-down(md) {
+                            margin-left: 60px;
+                        }
+
                     }
                 }
             }
@@ -115,6 +141,11 @@ $base-width:1200px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+
+    @include mq-down(md) {
+        grid-template-columns: 100%;
+        gap: 30px;
+    }
 }
 
 .columnArea {
@@ -122,9 +153,27 @@ $base-width:1200px;
     grid-template-columns: 1fr calc((345px / 1200px)*100%);
     gap: 43px;
 
+    @include mq-down(md) {
+        grid-template-columns: 100%;
+    }
+
     .mainColumn {
         display: grid;
         gap: 80px;
+
+        @include mq-down(md) {
+            gap: 90px;
+        }
+
+        .card {
+            p {
+                padding: 0 40px;
+            }
+
+            .more {
+                margin-top: 30px;
+            }
+        }
     }
 
     .sideColumn {
@@ -171,7 +220,8 @@ $base-width:1200px;
             &__wrap {
                 display: grid;
                 gap: 30px;
-                .card{
+
+                .card {
                     font-size: 14px;
                 }
             }
@@ -181,7 +231,7 @@ $base-width:1200px;
         .archive {
             &__list {
                 li {
-                    padding: 10px 0;
+                    padding: 10px 0 10px 20px;
                     list-style: none;
                     border-top: solid 1px #333;
 
@@ -215,6 +265,10 @@ $base-width:1200px;
         grid-template-columns: repeat(3, 1fr);
         gap: 61px;
         margin-bottom: 60px;
+
+        @include mq-down(md) {
+            grid-template-columns: 100%;
+        }
 
         #{$this}__section {
             #{$this}__secTitle {
