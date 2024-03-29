@@ -1,16 +1,24 @@
 $base-width:1200px;
 
-.l-section {
-    padding: 44px 0;
+.main {
+    padding: 85px 0 140px;
 
-    .l-inner {
-        width: min(calc(100% - 32px), $base-width);
-        margin: 0 auto;
+    .l-section {
+        padding: 44px 0;
+
+        .l-inner {
+            width: min(calc(100% - 32px), $base-width);
+            margin: 0 auto;
+        }
     }
 }
 
 
+
 .header {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
     background-color: #fff;
 
     &__top {
@@ -120,8 +128,17 @@ $base-width:1200px;
     }
 
     .sideColumn {
-        > div + div {
-            margin-top: 60px;
+        &__section {
+            .title {
+                text-align: center;
+                font-weight: bold;
+                font-size: 18px;
+                margin-bottom: 30px;
+            }
+
+            +.sideColumn__section {
+                margin-top: 60px;
+            }
         }
 
         .profile {
@@ -151,8 +168,14 @@ $base-width:1200px;
         }
 
         .ranking {
-            display: grid;
-            gap: 30px;
+            &__wrap {
+                display: grid;
+                gap: 30px;
+                .card{
+                    font-size: 14px;
+                }
+            }
+
         }
 
         .archive {
@@ -178,4 +201,82 @@ $base-width:1200px;
 
     }
 
+}
+
+.footer {
+    $this: &;
+    background-color: #f7f7f7;
+    padding: 50px 16px 10px;
+
+    &__inner {
+        max-width: $base-width;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 61px;
+        margin-bottom: 60px;
+
+        #{$this}__section {
+            #{$this}__secTitle {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 30px;
+            }
+
+            font-size: 14px;
+
+            ul {
+                li {
+                    list-style: none;
+
+                    a {
+                        color: #333;
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            &.about {
+                p {
+
+                    margin-bottom: 30px;
+                }
+
+                ul {
+                    li {
+                        &::before {
+                            content: "▶︎";
+                        }
+                    }
+                }
+
+            }
+
+            &.menu {
+
+                ul {
+                    li {
+                        margin-top: 15px;
+                        padding-top: 15px;
+                        border-top: 1px solid #333;
+
+                        &:last-child {
+                            padding-bottom: 15px;
+                            border-bottom: 1px solid #333;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    .copylight {
+        text-align: center;
+
+        small {
+            font-size: 12px;
+
+        }
+    }
 }

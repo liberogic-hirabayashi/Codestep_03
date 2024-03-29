@@ -1,12 +1,19 @@
-.l-section {
+@charset "UTF-8";
+.main {
+  padding: 85px 0 140px;
+}
+.main .l-section {
   padding: 44px 0;
 }
-.l-section .l-inner {
+.main .l-section .l-inner {
   width: min(100% - 32px, 1200px);
   margin: 0 auto;
 }
 
 .header {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
   background-color: #fff;
 }
 .header__top {
@@ -95,7 +102,13 @@
   display: grid;
   gap: 80px;
 }
-.columnArea .sideColumn > div + div {
+.columnArea .sideColumn__section .title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+.columnArea .sideColumn__section + .sideColumn__section {
   margin-top: 60px;
 }
 .columnArea .sideColumn .profile {
@@ -118,9 +131,12 @@
 .columnArea .sideColumn .profile p {
   font-size: 14px;
 }
-.columnArea .sideColumn .ranking {
+.columnArea .sideColumn .ranking__wrap {
   display: grid;
   gap: 30px;
+}
+.columnArea .sideColumn .ranking__wrap .card {
+  font-size: 14px;
 }
 .columnArea .sideColumn .archive__list li {
   padding: 10px 0;
@@ -134,4 +150,53 @@
   color: #333;
   text-decoration: none;
   font-size: 14px;
+}
+
+.footer {
+  background-color: #f7f7f7;
+  padding: 50px 16px 10px;
+}
+.footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 61px;
+  margin-bottom: 60px;
+}
+.footer__inner .footer__section {
+  font-size: 14px;
+}
+.footer__inner .footer__section .footer__secTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.footer__inner .footer__section ul li {
+  list-style: none;
+}
+.footer__inner .footer__section ul li a {
+  color: #333;
+  text-decoration: none;
+}
+.footer__inner .footer__section.about p {
+  margin-bottom: 30px;
+}
+.footer__inner .footer__section.about ul li::before {
+  content: "▶︎";
+}
+.footer__inner .footer__section.menu ul li {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #333;
+}
+.footer__inner .footer__section.menu ul li:last-child {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #333;
+}
+.footer .copylight {
+  text-align: center;
+}
+.footer .copylight small {
+  font-size: 12px;
 }/*# sourceMappingURL=style.css.map */
